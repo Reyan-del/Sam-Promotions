@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07070b">
+<title>SAM PROMOTIONS | Creative Advertising Agency</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --gold: #f5c45e;
+  --red: #ff3434;
+  --dark: #07070b;
+  --card: rgba(18, 18, 25, 0.9);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--dark);
+  color: white;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 15%,
+      rgba(135,25,15,.23), transparent 40%),
+    radial-gradient(ellipse at 85% 45%,
+      rgba(120,75,15,.15), transparent 40%),
+    linear-gradient(135deg, #050508, #101017 50%, #080609);
+  animation: cinematicGlow 12s ease-in-out infinite alternate;
+}
+
+@keyframes cinematicGlow {
+  from { filter: brightness(.8); }
+  to { filter: brightness(1.2); }
+}
+
+/* CENTRED NAVIGATION */
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 5%;
+  background: rgba(7,7,10,.94);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(245,196,94,.4);
+}
+
+.logo {
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 900;
+  color: var(--gold);
+  text-align: center;
+  letter-spacing: 3px;
+  white-space: nowrap;
+  text-shadow: 0 0 22px rgba(245,196,94,.25);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color .3s;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+/* CINEMATIC MAIN BANNER */
+.hero {
+  min-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 35%,
+      rgba(245,196,94,.22), transparent 38%),
+    radial-gradient(ellipse at 15% 80%,
+      rgba(210,35,25,.22), transparent 45%),
+    linear-gradient(135deg, #030305, #191015, #08080c);
+  border-bottom: 1px solid #6b4925;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.hero::before {
+  background: rgba(255,40,30,.13);
+  top: 0;
+  left: -180px;
+}
+
+.hero::after {
+  background: rgba(245,196,94,.12);
+  bottom: -200px;
+  right: -100px;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.tag {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.brand-title {
+  font-size: clamp(42px, 9vw, 90px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 2px;
+  margin: 24px 0;
+  color: white;
+  text-shadow: 0 0 35px rgba(245,196,94,.2);
+}
+
+.brand-title span {
+  display: block;
+  color: var(--gold);
+}
+
+.ad-tagline {
+  color: #eee;
+  font-size: clamp(16px, 2.5vw, 22px);
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  font-weight: bold;
+}
+
+.hero-description {
+  max-width: 680px;
+  color: #c8c5c5;
+  font-size: 17px;
+  margin-bottom: 28px;
+}
+
+.button {
+  display: inline-block;
+  padding: 13px 24px;
+  margin: 6px;
+  background: var(--gold);
+  color: #111;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(245,196,94,.35);
+}
+
+.button-outline {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+/* GENERAL SECTIONS */
+section {
+  padding: 80px 8%;
+  position: relative;
+}
+
+.heading {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.subheading {
+  text-align: center;
+  color: #aaa;
+  margin: 0 auto 40px;
+  max-width: 650px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 18px;
+  background: var(--card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 35px rgba(0,0,0,.35);
+}
+
+.icon {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #bbb;
+  font-size: 15px;
+}
+
+/* CINEMATIC RED SECTION */
+.red-section {
+  background:
+    radial-gradient(ellipse at top left,
+      rgba(180,15,15,.22), transparent 60%),
+    linear-gradient(135deg, #180508, #2d080c, #080509);
+  border-top: 1px solid rgba(255,60,60,.18);
+  border-bottom: 1px solid rgba(255,60,60,.18);
+}
+
+.red-section .heading span {
+  color: #ff4c4c;
+}
+
+.red-section .card:hover {
+  border-color: #ff4c4c;
+  box-shadow: 0 12px 35px rgba(255,30,30,.12);
+}
+
+/* PROFESSIONAL BLUE SECTION */
+.blue-section {
+  background:
+    radial-gradient(ellipse at 80% 20%,
+      rgba(30,80,170,.18), transparent 55%),
+    linear-gradient(135deg, #080d18, #101522, #080a12);
+  border-top: 1px solid rgba(90,140,255,.18);
+  border-bottom: 1px solid rgba(90,140,255,.18);
+}
+
+.blue-section .subheading {
+  color: #aab6cb;
+}
+
+.blue-section .card {
+  background: rgba(13,19,32,.9);
+  border-color: rgba(120,160,240,.2);
+}
+
+.blue-section .card p {
+  color: #b5bfd0;
+}
+
+.blue-section .card:hover {
+  border-color: #2879ef;
+}
+
+/* CREATIVE DIGITAL SECTION */
+.color-section {
+  background:
+    radial-gradient(ellipse at 15% 20%,
+      rgba(100,30,150,.22), transparent 50%),
+    radial-gradient(ellipse at 90% 80%,
+      rgba(20,70,160,.18), transparent 50%),
+    linear-gradient(120deg, #10091b, #1c1027, #091323);
+  border-top: 1px solid rgba(180,120,255,.18);
+  border-bottom: 1px solid rgba(180,120,255,.18);
+}
+
+.color-section .card:nth-child(1) {
+  border-color: #a879ff;
+}
+
+.color-section .card:nth-child(2) {
+  border-color: #ff76ba;
+}
+
+.color-section .card:nth-child(3) {
+  border-color: #53d8ff;
+}
+
+.color-section .card:nth-child(4) {
+  border-color: var(--gold);
+}
+
+.showcase {
+  min-height: 190px;
+  border-radius: 16px;
+  display: flex;
+  align-items: end;
+  padding: 22px;
+  background: linear-gradient(135deg,
+    rgba(50,45,65,.8), rgba(10,10,18,.95));
+  border: 1px solid #444;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.showcase:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.3);
+}
+
+.showcase h3 {
+  font-size: 22px;
+}
+
+/* PORTFOLIO */
+#portfolio {
+  background:
+    radial-gradient(ellipse at center,
+      rgba(100,50,15,.1), transparent 65%);
+}
+
+/* CONTACT */
+.contact {
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center top,
+      rgba(130,25,25,.18), transparent 65%),
+    rgba(8,8,12,.9);
+  border-top: 1px solid rgba(245,196,94,.2);
+}
+
+.contact-box {
+  max-width: 650px;
+  margin: auto;
+  padding: 35px;
+  border: 1px solid rgba(245,196,94,.3);
+  border-radius: 20px;
+  background: rgba(20,18,20,.9);
+  box-shadow: 0 15px 45px rgba(0,0,0,.25);
+}
+
+.contact-box p {
+  color: #ccc;
+  margin: 15px 0;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: rgba(4,4,7,.97);
+  color: #999;
+  border-top: 1px solid #292929;
+}
+
+footer strong {
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+  nav {
+    padding: 15px 4%;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 75vh;
+  }
+
+  .tag {
+    letter-spacing: 2px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  section {
+    padding: 60px 6%;
+  }
+
+  .heading {
+    font-size: 30px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .contact-box {
+    padding: 25px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="logo">SAM PROMOTIONS</div>
+
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- MAIN CINEMATIC ADVERTISING BANNER -->
+<header class="hero" id="home">
+  <div class="tag">CREATIVITY • STRATEGY • IMPACT</div>
+
+  <h1 class="brand-title">
+    SAM
+    <span>PROMOTIONS</span>
+  </h1>
+
+  <p class="ad-tagline">
+    YOUR BRAND. OUR CREATIVITY. UNLIMITED IMPACT.
+  </p>
+
+  <p class="hero-description">
+    We create cinematic advertisements, powerful promotional
+    videos and modern digital experiences that help businesses
+    capture attention and make their brands unforgettable.
+  </p>
+
+  <div>
+    <a href="#services" class="button">Explore Services ↗</a>
+    <a href="#contact" class="button button-outline">Work With Us</a>
+  </div>
+</header>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2 class="heading">What We <span style="color:#f5c45e">Do</span></h2>
+
+  <p class="subheading">
+    Creative services designed to present your business
+    professionally and make your brand memorable.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="icon">🎬</div>
+      <h3>Cinematic Ads</h3>
+      <p>Engaging promotional videos for restaurants, hotels,
+      products and businesses.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📱</div>
+      <h3>Social Media</h3>
+      <p>Creative content ideas for Instagram, YouTube Shorts
+      and other social platforms.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌐</div>
+      <h3>Websites</h3>
+      <p>Modern promotional websites that introduce your
+      business and showcase your services.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">✨</div>
+      <h3>Brand Promotion</h3>
+      <p>Visual branding and advertising concepts that help
+      businesses communicate their identity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CINEMATIC IMPACT -->
+<section class="red-section">
+  <h2 class="heading">Cinematic <span>Impact</span></h2>
+
+  <p class="subheading">
+    Bold visuals. Powerful storytelling. Memorable promotions.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="icon">🔥</div>
+      <h3>Bold Campaigns</h3>
+      <p>Make your next promotion stand out with dramatic
+      visual concepts and striking creative direction.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🎥</div>
+      <h3>Video Concepts</h3>
+      <p>Plan advertisements with engaging scenes, transitions
+      and a clear message.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🚀</div>
+      <h3>Product Launches</h3>
+      <p>Introduce new products and services through
+      creative promotional campaigns.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROFESSIONAL BUSINESS SERVICES -->
+<section class="blue-section">
+  <h2 class="heading">
+    Professional. <span style="color:#4e9aff">Modern.</span>
+  </h2>
+
+  <p class="subheading">
+    A clean, professional approach to business presentation.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="icon">🏢</div>
+      <h3>Business Websites</h3>
+      <p>Present your business information in a clear,
+      accessible and professional format.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🍽️</div>
+      <h3>Restaurant Promotion</h3>
+      <p>Showcase your food, ambience, menu and dining
+      experience with attractive visuals.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🛍️</div>
+      <h3>Product Showcases</h3>
+      <p>Highlight product features, benefits and
+      promotional offers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CREATIVE STYLES -->
+<section class="color-section">
+  <h2 class="heading">
+    Ideas Without <span style="color:#f5c45e">Limits</span>
+  </h2>
+
+  <p class="subheading">
+    Different styles. Different stories. One creative vision.
+  </p>
+
+  <div class="grid">
+    <div class="showcase">
+      <div>
+        <div class="icon">🖤</div>
+        <h3>Luxury Branding</h3>
+        <p>Premium black and gold aesthetics.</p>
+      </div>
+    </div>
+
+    <div class="showcase">
+      <div>
+        <div class="icon">🔴</div>
+        <h3>Cinematic Style</h3>
+        <p>Bold red tones and dramatic visuals.</p>
+      </div>
+    </div>
+
+    <div class="showcase">
+      <div>
+        <div class="icon">🔵</div>
+        <h3>Modern Business</h3>
+        <p>Clean layouts and professional design.</p>
+      </div>
+    </div>
+
+    <div class="showcase">
+      <div>
+        <div class="icon">🌈</div>
+        <h3>Creative Digital</h3>
+        <p>Colourful concepts and fresh ideas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <h2 class="heading">
+    Our Creative <span style="color:#f5c45e">Portfolio</span>
+  </h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="icon">🍴</div>
+      <h3>Restaurant Campaign</h3>
+      <p>Food advertising and restaurant branding concepts.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🏨</div>
+      <h3>Hotel Promotion</h3>
+      <p>Hospitality advertising and cinematic presentation.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📢</div>
+      <h3>Business Campaign</h3>
+      <p>Promotional ideas for brands and local businesses.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2 class="heading">
+    Let's Create <span style="color:#f5c45e">Together</span>
+  </h2>
+
+  <div class="contact-box">
+    <div class="icon">🤝</div>
+    <h3>Have a project in mind?</h3>
+
+    <p>
+      Contact SAM PROMOTIONS to discuss your next
+      promotional video, website or creative campaign.
+    </p>
+
+    <a class="button"
+       href="mailto:Sampromotions04@gmail.com?subject=Promotional%20Project">
+       Email Us ↗
+    </a>
+
+    <p>
+      <a href="mailto:Sampromotions04@gmail.com"
+         style="color:#f5c45e;text-decoration:none;">
+        Sampromotions04@gmail.com
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>SAM PROMOTIONS</strong></p>
+  <p>Creative Ideas. Powerful Promotions.</p>
+  <p>© <span id="year"></span> SAM PROMOTIONS. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
