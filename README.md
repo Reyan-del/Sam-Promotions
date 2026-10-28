@@ -1,1 +1,1 @@
-# Sam-Promotions
+# Sam
